@@ -70,7 +70,7 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
                 return;
             }
 
-            // 📦 Claims
+
             Claims claims = jwtUtil.extracClaims(token);
 
             if (claims == null) {
@@ -97,7 +97,10 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
                 return;
             }
 
-            System.out.println(user);
+            if (!user.getRole().getActive()) {
+                sendErrorResponse(response, HttpServletResponse.SC_UNAUTHORIZED, "Your account role is not active");
+                return;
+            }
 
             Set<GrantedAuthority> authorities =
                     user.getRole()

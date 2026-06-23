@@ -29,19 +29,16 @@ public class DynamicAuthorizationFilter extends OncePerRequestFilter {
         String method = request.getMethod();
         String path = request.getRequestURI();
 
-        // 🚫 Ignorados
         if (SecurityRules.isIgnored(path)) {
             filterChain.doFilter(request, response);
             return;
         }
 
-        // 🔓 Públicos
         if (SecurityRules.isPublic(method, path)) {
             filterChain.doFilter(request, response);
             return;
         }
 
-        // 🔐 Solo autenticados
         if (SecurityRules.isAuthOnly(method, path)) {
             filterChain.doFilter(request, response);
             return;
