@@ -7,7 +7,10 @@ public class SecurityRules {
 
     public static final Map<String, Set<String>> PUBLIC = Map.of(
             "GET", Set.of("/api/public/info"),
-            "POST", Set.of("/api/auth/login","/api/auth/signup")
+            "POST", Set.of(
+                    "/api/auth/login",
+                    "/api/auth/signup"
+            )
     );
 
     public static final Map<String, Set<String>> AUTH_ONLY = Map.of(
@@ -27,9 +30,5 @@ public class SecurityRules {
 
     public static boolean isIgnored(String path) {
         return IGNORED.contains(path);
-    }
-
-    public static boolean requiresAuth(String method, String path) {
-        return !isPublic(method, path) && !isIgnored(path);
     }
 }
