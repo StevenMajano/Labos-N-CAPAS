@@ -8,16 +8,26 @@ import lombok.Data;
 
 @Data
 public class UserUpdateDto {
+
     @Size(min = 3, max = 20, message = "El nombre de usuario debe tener entre 3 y 20 caracteres")
-    @Pattern(regexp = "^[A-Za-zÁÉÍÓÚáéíóúÑñ\\.\\s]+$", message = "El nombre de usuario solo puede contener letras, espacios y puntos")
+    @Pattern(
+            regexp = "^[A-Za-zÁÉÍÓÚáéíóúÑñ0-9._-]+$",
+            message = "El nombre de usuario solo puede contener letras, números, puntos, guiones y guion bajo"
+    )
     private String username;
 
     @Size(min = 2, max = 50, message = "El nombre debe tener entre 2 y 50 caracteres")
-    @Pattern(regexp = "^[A-Za-zÁÉÍÓÚáéíóúÑñ\\s]+$", message = "El nombre solo puede contener letras y espacios")
+    @Pattern(
+            regexp = "^[A-Za-zÁÉÍÓÚáéíóúÑñ\\s]+$",
+            message = "El nombre solo puede contener letras y espacios"
+    )
     private String name;
 
     @Size(min = 2, max = 50, message = "El apellido debe tener entre 2 y 50 caracteres")
-    @Pattern(regexp = "^[A-Za-zÁÉÍÓÚáéíóúÑñ\\s]+$", message = "El apellido solo puede contener letras y espacios")
+    @Pattern(
+            regexp = "^[A-Za-zÁÉÍÓÚáéíóúÑñ\\s]+$",
+            message = "El apellido solo puede contener letras y espacios"
+    )
     private String surname;
 
     @Email(message = "Debe proporcionar un correo electrónico válido")

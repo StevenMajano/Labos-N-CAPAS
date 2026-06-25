@@ -38,10 +38,10 @@ public class AuthController {
     }
 
     @GetMapping("/profile")
-    public ResponseEntity<User> getProfile(@AuthenticationPrincipal User user) {
+    public ResponseEntity<User> getProfile(@AuthenticationPrincipal Integer userId) {
+        User user = userService.findById(userId);
         return ResponseEntity.ok(user);
     }
-
     @PutMapping("/update/profile")
     public ResponseEntity<AuthResponse> updaterofile(@RequestHeader("Authorization") String authHeader,
             @RequestBody UpdateProfileDto dto) {

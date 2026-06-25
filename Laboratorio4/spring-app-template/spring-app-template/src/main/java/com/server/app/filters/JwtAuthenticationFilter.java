@@ -47,6 +47,10 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
         String method = request.getMethod();
         String path = request.getRequestURI();
 
+        System.out.println("JWT FILTER -> method=" + method + ", path=" + path
+                + ", isPublic=" + SecurityRules.isPublic(method, path)
+                + ", isIgnored=" + SecurityRules.isIgnored(path));
+
         return SecurityRules.isPublic(method, path)
                 || SecurityRules.isIgnored(path);
     }
