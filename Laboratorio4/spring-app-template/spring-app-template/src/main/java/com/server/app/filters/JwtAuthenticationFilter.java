@@ -97,10 +97,6 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
                 return;
             }
 
-            if (!user.getRole().getActive()) {
-                sendErrorResponse(response, HttpServletResponse.SC_UNAUTHORIZED, "Your account role is not active");
-                return;
-            }
 
             Set<GrantedAuthority> authorities =
                     user.getRole()
@@ -113,7 +109,7 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
 
             authorities.add(new SimpleGrantedAuthority("ROLE_" + user.getRole().getName()));
 
-            UsernamePasswordAuthenticationToken authentication = new UsernamePasswordAuthenticationToken(user,null, authorities);
+            UsernamePasswordAuthenticationToken authentication = new UsernamePasswordAuthenticationToken(user.getId(), null, authorities);;
 
             authentication.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
 
