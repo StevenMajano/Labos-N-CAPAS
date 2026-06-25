@@ -1,6 +1,6 @@
 package com.server.app.dto.finance.investment;
 
-import com.server.app.enums.finance.InvestmentStatus;
+import com.server.app.enums.InvestmentStatus;
 import lombok.Builder;
 import lombok.Data;
 

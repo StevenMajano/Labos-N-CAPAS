@@ -1,4 +1,4 @@
-package com.server.app.enums.finance;
+package com.server.app.enums;
 
 public enum AccountType {
     SAVINGS,

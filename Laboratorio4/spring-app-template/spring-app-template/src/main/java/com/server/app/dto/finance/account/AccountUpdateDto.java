@@ -1,6 +1,6 @@
 package com.server.app.dto.finance.account;
 
-import com.server.app.enums.finance.AccountType;
+import com.server.app.enums.AccountType;
 import lombok.Data;
 
 @Data

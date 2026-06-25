@@ -1,6 +1,6 @@
 package com.server.app.entities.finance;
 
-import com.server.app.enums.finance.CurrencyType;
+import com.server.app.enums.CurrencyType;
 import jakarta.persistence.*;
 import lombok.*;
 

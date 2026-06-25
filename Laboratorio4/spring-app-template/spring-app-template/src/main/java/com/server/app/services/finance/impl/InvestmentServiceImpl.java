@@ -5,7 +5,7 @@ import com.server.app.dto.finance.investment.InvestmentResponseDto;
 import com.server.app.entities.finance.Asset;
 import com.server.app.entities.finance.Investment;
 import com.server.app.entities.finance.Portfolio;
-import com.server.app.enums.finance.InvestmentStatus;
+import com.server.app.enums.InvestmentStatus;
 import com.server.app.exceptions.NotFoundException;
 import com.server.app.repositories.finance.AssetRepository;
 import com.server.app.repositories.finance.InvestmentRepository;

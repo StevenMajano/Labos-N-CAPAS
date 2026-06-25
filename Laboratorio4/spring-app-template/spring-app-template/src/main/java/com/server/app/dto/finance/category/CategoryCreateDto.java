@@ -1,6 +1,6 @@
 package com.server.app.dto.finance.category;
 
-import com.server.app.enums.finance.CategoryType;
+import com.server.app.enums.CategoryType;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import lombok.Data;

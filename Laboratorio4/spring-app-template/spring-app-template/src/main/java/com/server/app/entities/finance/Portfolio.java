@@ -1,7 +1,7 @@
 package com.server.app.entities.finance;
 
 import com.server.app.entities.User;
-import com.server.app.enums.finance.RiskProfile;
+import com.server.app.enums.RiskProfile;
 import jakarta.persistence.*;
 import lombok.*;
 

@@ -1,6 +1,6 @@
 package com.server.app.dto.finance.movement;
 
-import com.server.app.enums.finance.CurrencyType;
+import com.server.app.enums.CurrencyType;
 import lombok.Builder;
 import lombok.Data;
 

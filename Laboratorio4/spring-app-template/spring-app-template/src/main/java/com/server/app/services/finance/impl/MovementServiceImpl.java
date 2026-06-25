@@ -5,7 +5,7 @@ import com.server.app.dto.finance.movement.MovementResponseDto;
 import com.server.app.entities.finance.Account;
 import com.server.app.entities.finance.Category;
 import com.server.app.entities.finance.Movement;
-import com.server.app.enums.finance.CategoryType;
+import com.server.app.enums.CategoryType;
 import com.server.app.exceptions.BadRequestException;
 import com.server.app.exceptions.NotFoundException;
 import com.server.app.repositories.finance.AccountRepository;

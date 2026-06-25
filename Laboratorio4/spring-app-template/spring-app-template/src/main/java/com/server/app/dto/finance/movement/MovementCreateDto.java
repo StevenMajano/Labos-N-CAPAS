@@ -1,6 +1,6 @@
 package com.server.app.dto.finance.movement;
 
-import com.server.app.enums.finance.CurrencyType;
+import com.server.app.enums.CurrencyType;
 import jakarta.validation.constraints.DecimalMin;
 import jakarta.validation.constraints.NotNull;
 import lombok.Data;

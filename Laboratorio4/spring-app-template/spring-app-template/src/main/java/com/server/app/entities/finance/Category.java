@@ -1,6 +1,6 @@
 package com.server.app.entities.finance;
 
-import com.server.app.enums.finance.CategoryType;
+import com.server.app.enums.CategoryType;
 import jakarta.persistence.*;
 import lombok.*;
 

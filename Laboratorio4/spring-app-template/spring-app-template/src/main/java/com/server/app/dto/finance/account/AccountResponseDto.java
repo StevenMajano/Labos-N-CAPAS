@@ -1,7 +1,7 @@
 package com.server.app.dto.finance.account;
 
-import com.server.app.enums.finance.AccountType;
-import com.server.app.enums.finance.CurrencyType;
+import com.server.app.enums.AccountType;
+import com.server.app.enums.CurrencyType;
 import lombok.Builder;
 import lombok.Data;
 

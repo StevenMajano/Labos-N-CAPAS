@@ -1,6 +1,6 @@
 package com.server.app.entities.finance;
 
-import com.server.app.enums.finance.InvestmentStatus;
+import com.server.app.enums.InvestmentStatus;
 import jakarta.persistence.*;
 import lombok.*;
 

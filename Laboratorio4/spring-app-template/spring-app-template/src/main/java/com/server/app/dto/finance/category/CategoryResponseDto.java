@@ -1,6 +1,6 @@
 package com.server.app.dto.finance.category;
 
-import com.server.app.enums.finance.CategoryType;
+import com.server.app.enums.CategoryType;
 import lombok.Builder;
 import lombok.Data;
 

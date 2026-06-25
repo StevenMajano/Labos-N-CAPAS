@@ -1,6 +1,6 @@
 package com.server.app.dto.finance.portfolio;
 
-import com.server.app.enums.finance.RiskProfile;
+import com.server.app.enums.RiskProfile;
 import jakarta.validation.constraints.DecimalMin;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
