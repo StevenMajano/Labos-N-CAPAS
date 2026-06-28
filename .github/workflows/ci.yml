@@ -9,6 +9,7 @@ on:
 jobs:
   build-and-test:
     runs-on: ubuntu-latest
+
     defaults:
       run:
         working-directory: ./Laboratorio4/spring-app-template/spring-app-template
@@ -33,6 +34,7 @@ jobs:
   smoke-test-compose:
     needs: build-and-test
     runs-on: ubuntu-latest
+
     defaults:
       run:
         working-directory: ./Laboratorio4/spring-app-template/spring-app-template
@@ -61,7 +63,7 @@ jobs:
           POSTGRES_PASSWORD=postgres
           EOF
 
-           - name: Start containers
+      - name: Start containers
         run: docker compose up --build -d
 
       - name: Smoke test
