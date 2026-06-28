@@ -1,11 +1,45 @@
 version: "3.9"
 
 services:
+  db:
+    image: postgres:16-alpine
+    container_name: spring-app-db
+    restart: always
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB}
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+    ports:
+      - "5433:5432"
+    volumes:
+      - spring-app-db-data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER} -d ${POSTGRES_DB}"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+    networks:
+      - spring-app-network
+
   app:
-    build: .
+    build:
+      context: .
+      dockerfile: Dockerfile
     container_name: spring-app
+    restart: on-failure
+    depends_on:
+      db:
+        condition: service_healthy
     env_file:
       - .env
     ports:
       - "4000:4000"
-    restart: always
+    networks:
+      - spring-app-network
+
+networks:
+  spring-app-network:
+
+volumes:
+  spring-app-db-data:
+    driver: local

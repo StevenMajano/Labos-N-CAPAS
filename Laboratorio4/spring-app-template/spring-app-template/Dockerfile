@@ -1,25 +1,24 @@
 FROM maven:3.9.8-eclipse-temurin-21 AS build
 WORKDIR /app
 
-COPY pom.xml .
-COPY mvnw .
 COPY .mvn .mvn
-RUN ./mvnw dependency:go-offline
+COPY mvnw pom.xml ./
+RUN ./mvnw dependency:go-offline -B
 
-COPY src src
-RUN ./mvnw clean package -DskipTests
+COPY src ./src
+RUN ./mvnw clean package -DskipTests -B
 
-FROM eclipse-temurin:21-jdk
+FROM eclipse-temurin:21-jre
 WORKDIR /app
 
+RUN groupadd -r spring && useradd -r -g spring spring
 
 COPY --from=build /app/target/*.jar app.jar
 
-EXPOSE 4000
-ENTRYPOINT ["java", "-jar", "app.jar"]
+RUN chown spring:spring app.jar
 
-# docker compose up -d
-# docker compose stop
-# docker compose down -v --rmi all
-# docker network ls
-# docker network connect <mi-contenedor-de-spring-boot> <contenedor-de-postgress>
+USER spring:spring
+
+EXPOSE 4000
+
+ENTRYPOINT ["java", "-jar", "app.jar"]
