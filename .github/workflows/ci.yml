@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     defaults:
       run:
-        working-directory: ./Laboratorio4/spring-app-template
+        working-directory: ./Laboratorio4/spring-app-template/spring-app-template
 
     steps:
       - name: Checkout repository
@@ -34,8 +34,8 @@ jobs:
     needs: build-and-test
     runs-on: ubuntu-latest
     defaults:
-  		run:
-    working-directory: ./Laboratorio4/spring-app-template/spring-app-template
+      run:
+        working-directory: ./Laboratorio4/spring-app-template/spring-app-template
 
     steps:
       - name: Checkout repository
@@ -53,7 +53,6 @@ jobs:
           SPRING_JPA_PROPERTIES_HIBERNATE_DIALECT=org.hibernate.dialect.PostgreSQLDialect
           SPRING_JPA_HIBERNATE_DDL_AUTO=update
           SPRING_JPA_SHOW_SQL=false
-          SPRING_DATA_WEB_PAGEABLE_ONE_INDEXED_PARAMETERS=true
           SERVER_PORT=4000
           SECURITY_JWT_SECRET_KEY=VGhpcy1pcy1hLXZlcnktc2VjdXJlLWp3dC1zZWNyZXQta2V5LWZvci1oczI1Ni0yMDI2
           SECURITY_JWT_EXPIRATION_TIME=3600000
@@ -78,10 +77,6 @@ jobs:
           done
           docker compose logs
           exit 1
-
-      - name: Show logs on failure
-        if: failure()
-        run: docker compose logs
 
       - name: Shutdown containers
         if: always()

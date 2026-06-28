@@ -22,7 +22,7 @@ jobs:
         uses: docker/build-push-action@v6
         with:
           context: ./Laboratorio4/spring-app-template/spring-app-template
-	  file: ./Laboratorio4/spring-app-template/spring-app-template/Dockerfile
+          file: ./Laboratorio4/spring-app-template/spring-app-template/Dockerfile
           push: true
           tags: |
             ${{ secrets.DOCKERHUB_USERNAME }}/spring-app-template:latest
